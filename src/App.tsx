@@ -1,5 +1,5 @@
 import './index.css'
-import { Route, Routes, Link } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Player from './pages/Player'
@@ -7,47 +7,26 @@ import NotFound from './pages/NotFound'
 import AdminLogin from './pages/AdminLogin'
 import Admin from './pages/Admin'
 import ProtectedRoute from './components/ProtectedRoute'
-
+import ElementNavBar from './components/ElementNavBar'
+import Header from './components/Header'
 function App() {
   return (
     <>
-      <div className="min-h-screen min-w-screen bg-[#F8F9FA] flex flex-col">
-        <nav className="w-full bg-[#002B5B] shadow-md">
-          <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div className="min-h-screen min-w-screen bg-gris-claro flex flex-col">
+
+        <nav className="w-full bg-azul-noche shadow-md">
+          <div className="max-w-6xl mx-auto px-4 py-6 flex items-center justify-between">
+
             <div className="flex items-center gap-4">
-              <img
-                src="src/assets/logo_iea.png"
-                alt="Logo del Instituto Experimental"
-                className="h-12 w-auto rounded"
-              />
-              <span className="text-2xl font-bold"
-                style={{ color: "#FFC107", textShadow: "1px 1px 2px #002B5B" }}>
-                Campeonato IEA 2025
-              </span>
+              <Header></Header>
             </div>
+
             <div className="flex gap-6 text-lg">
-              <Link
-                to="/"
-                className="font-medium transition-colors px-2 py-1 rounded
-                  text-[#F8F9FA] hover:text-primary hover:bg-[#FFC107] hover:shadow"
-              >
-                Home
-              </Link>
-              <Link
-                to="/about"
-                className="font-medium transition-colors px-2 py-1 rounded
-                  text-[#F8F9FA] hover:text-verde-cesped hover:bg-[#28A745] hover:shadow"
-              >
-                About
-              </Link>
-              <Link
-                to="/adminlogin"
-                className="font-medium transition-colors px-2 py-1 rounded
-                  text-[#F8F9FA] hover:text-[#28A745] hover:bg-[#FFC107] hover:shadow"
-              >
-                Admin
-              </Link>
+              <ElementNavBar to="/">Home</ElementNavBar>
+              <ElementNavBar to="/about">About</ElementNavBar>
+              <ElementNavBar to="/admin">Admin</ElementNavBar>
             </div>
+
           </div>
         </nav>
 
@@ -68,6 +47,9 @@ function App() {
             <Route path="/adminlogin" element={<AdminLogin />} />
           </Routes>
         </main>
+        <footer className="py-8 mt-10 bg-gray-800 text-white text-center">
+          <p>© 2025 Campeonato Intercolegiado. Todos los derechos reservados.</p>
+        </footer>
       </div>
     </>
   )
