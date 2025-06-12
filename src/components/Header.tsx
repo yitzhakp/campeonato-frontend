@@ -2,7 +2,7 @@ function Header() {
     return (
         <>
             <img
-                src="src/assets/logo_iea.png"
+                src="/logo_iea.png"
                 alt="Logo del Instituto Experimental"
                 className="h-12 w-auto rounded"
             />
