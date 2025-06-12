@@ -23,8 +23,6 @@ function App() {
 
             <div className="flex gap-6 text-lg">
               <ElementNavBar to="/">Home</ElementNavBar>
-              <ElementNavBar to="/about">About</ElementNavBar>
-              <ElementNavBar to="/admin">Admin</ElementNavBar>
             </div>
 
           </div>
@@ -48,7 +46,7 @@ function App() {
           </Routes>
         </main>
         <footer className="py-8 mt-10 bg-gray-800 text-white text-center">
-          <p>© 2025 Campeonato Intercolegiado. Todos los derechos reservados.</p>
+          <p>© 2025 Campeonato Intercursos. Todos los derechos reservados.</p>
         </footer>
       </div>
     </>

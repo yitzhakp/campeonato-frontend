@@ -1,7 +1,6 @@
 import type Equipo from "../Types/Equipo";
 
 function TeamCard(team: Equipo) {
-    // Si hay más de un color, crea un fondo rayado usando CSS linear-gradient
     const colorStyle =
         team.color_equipo.length > 1
             ? {
@@ -20,10 +19,16 @@ function TeamCard(team: Equipo) {
     return (
         <div
             key={team.id_equipo}
-            className="bg-blanco-puro rounded-2xl shadow-md p-6"
+            className="bg-gris-claro rounded-2xl shadow-md p-6"
         >
             <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-semibold">{team.nombre_equipo}</h3>
+                <h3
+                  className=" font-semibold truncate  sm:max-w-[220px] md:max-w-[200px] transition-all"
+                  title={team.nombre_equipo}
+                  style={{ fontSize: "clamp(1rem, 4vw, 1.25rem)" }}
+                >
+                  {team.nombre_equipo}
+                </h3>
                 <span
                     className="w-6 h-6 rounded-full border border-black"
                     style={colorStyle}
