@@ -15,13 +15,13 @@ function App() {
       <div className="min-h-screen min-w-screen bg-gris-claro flex flex-col">
 
         <nav className="w-full bg-azul-noche shadow-md">
-          <div className="max-w-6xl mx-auto px-4 py-6 flex items-center justify-between">
+          <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
 
             <div className="flex items-center gap-4">
               <Header></Header>
             </div>
 
-            <div className="flex gap-6 text-lg">
+            <div className="flex gap-4 text-lg">
               <ElementNavBar to="/">Home</ElementNavBar>
             </div>
 

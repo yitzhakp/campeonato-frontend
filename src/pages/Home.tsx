@@ -4,19 +4,19 @@ import Teams from "../components/Teams";
 
 export default function HomeCampeonato() {
     return (
-        <div className="min-h-screen bg-gris-claro text-gris-oscuro">
+        <div className="min-h-screen w-full bg-gris-claro text-gris-oscuro">
             {/* Hero Section */}
-            <section className="bg-[url('/cancha.jpg')] bg-cover bg-center text-azul-noche py-20 px-6">
+            <section className="bg-[url('/cancha.jpg')] bg-cover bg-center text-azul-noche py-8 px-6">
                 <div className="max-w-4xl mx-auto text-center flex flex-col items-center justify-center">
-                    <h1 className="text-5xl font-bold drop-shadow-xl mb-10">Campeonato Intercursos 2025</h1>
-                    <img src='/trofeo.svg' alt="Balonmano" className="w-60 h-60 lg:w-80 lg:h-80 object-cover rounded-full border-black border" />
+                    <img src='/trofeo.svg' alt="Balonmano" className="w-40 h-40 lg:w-60 lg:h-60 object-cover rounded-full border-black border" />
                     <p className="text-xl mt-4"> Respeto. Compañerismo. Pasión.</p>
                     <CountDown date="2025-07-19T07:00:00-05:00" />
                 </div>
             </section>
 
             {/* Sección de Deportes */}
-            <section className="py-6 px-6 mb-10 bg-verde-menta rounded-xl">
+            <section className="py-6 px-6 mb-10 bg-verde-menta rounded-xl text-center">
+                <h1 className="text-5xl font-bold drop-shadow-xl mb-10">Campeonato Intercursos 2025</h1>
                 <div className="max-w-5xl mx-auto">
                     <p className="text-center text-xl mb-6">
                         Desde hace tiempo, el <strong>Instituto Experimental del Atlántico</strong> ha llevado a cabo un campeonato en la clase de <strong>Educación Física</strong>. Este campeonato es organizado por los estudiantes de undécimo grado. En este, toda la institución participa en un <strong>deporte</strong>, en su respectiva <strong>categoría</strong>.

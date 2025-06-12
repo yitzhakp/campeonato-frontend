@@ -58,9 +58,9 @@ function CountDown({ date }: Props) {
     }
 
     return (
-        <div className="flex flex-col items-center mt-10">
+        <div className="flex flex-col items-center mt-5">
             <h3 className="text-2xl font-bold mb-8 text-azul-noche tracking-wide uppercase">¡Faltan para el torneo!</h3>
-            <div className="flex gap-4 md:gap-8">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8">
                 <CountdownBox number={time.dias}>Días</CountdownBox>
                 <CountdownBox number={time.horas}>Horas</CountdownBox>
                 <CountdownBox number={time.minutos}>Minutos</CountdownBox>
