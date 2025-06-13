@@ -9,6 +9,7 @@ import Admin from './pages/Admin'
 import ProtectedRoute from './components/ProtectedRoute'
 import ElementNavBar from './components/ElementNavBar'
 import Header from './components/Header'
+import Matches from './pages/Matches'
 function App() {
   return (
     <>
@@ -23,6 +24,8 @@ function App() {
 
             <div className="flex gap-4 text-lg">
               <ElementNavBar to="/">Home</ElementNavBar>
+              <ElementNavBar to="/partidos">Partidos</ElementNavBar>
+
             </div>
 
           </div>
@@ -34,6 +37,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/player/:name" element={<Player />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/partidos" element={<Matches />} />
+
             <Route
               path="/admin"
               element={
