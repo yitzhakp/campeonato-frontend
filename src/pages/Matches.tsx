@@ -114,10 +114,10 @@ export default function MatchesPage() {
 
     // Filtrar por combinaciones de jornada y categoría
     const secciones = [
-        { jornada: 0, categoria: 0, titulo: "Jornada 1 - Junior" },
-        { jornada: 0, categoria: 1, titulo: "Jornada 1 - Senior" },
-        { jornada: 1, categoria: 0, titulo: "Jornada 2 - Junior" },
-        { jornada: 1, categoria: 1, titulo: "Jornada 2 - Senior" },
+        { jornada: 0, categoria: 1, titulo: "Balonmano - Junior" },
+        { jornada: 0, categoria: 0, titulo: "Fútbol - Junior" },
+        { jornada: 1, categoria: 1, titulo: "Balonmano - Senior" },
+        { jornada: 1, categoria: 0, titulo: "Fútbol - Senior" },
     ];
 
     // Obtener el número de fecha del campeonato según la fecha seleccionada
