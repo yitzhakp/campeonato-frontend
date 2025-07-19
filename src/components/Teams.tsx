@@ -3,6 +3,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 import type Equipo from "../Types/Equipo";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 type TeamsProps = {
   jornada?: number;
@@ -45,10 +46,14 @@ function Teams({ jornada, deporte }: TeamsProps) {
   return (
   <div className="flex flex-wrap justify-center gap-6">
     {teams.map((team) => (
-      <div key={team.id_equipo} className="flex-[1_1_200px] max-w-xs transition-transform duration-300 hover:scale-105 hover:shadow-2xl bg-blanco-puro rounded-2xl">
-        <TeamCard {...team} />
-      </div>
-    ))}
+      <Link
+          key={team.id_equipo}
+          to={`/team/${team.id_equipo}`}
+          className="flex-[1_1_200px] max-w-xs transition-transform duration-300 hover:scale-105 hover:shadow-2xl bg-blanco-puro rounded-2xl no-underline"
+        >
+          <TeamCard {...team} />
+        </Link>
+      ))}
   </div>
 );
 }

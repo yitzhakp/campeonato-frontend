@@ -10,6 +10,10 @@ import ProtectedRoute from './components/ProtectedRoute'
 import ElementNavBar from './components/ElementNavBar'
 import Header from './components/Header'
 import Matches from './pages/Matches'
+import Team from './pages/Team'
+import AdminPartido from './pages/AdminPartido'
+import PartidoEventosPage from './pages/PartidoEventosPage'
+
 function App() {
   return (
     <>
@@ -36,9 +40,11 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/player/:name" element={<Player />} />
+            <Route path="/team/:id" element={<Team />} />
+            <Route path="/admin/partido/:id" element={<AdminPartido />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/partidos" element={<Matches />} />
-
+            <Route path="/partido/:id" element={<PartidoEventosPage />} />
             <Route
               path="/admin"
               element={

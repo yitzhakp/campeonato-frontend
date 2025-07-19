@@ -4,14 +4,16 @@ type TeamInfo = {
 };
 
 type MatchCardProps = {
-    torneo: string;
+    torneo?: string;
     grupo?: string;
     hora: string;
     local: TeamInfo;
+    fecha?: string;
     visitante: TeamInfo;
     marcador_local: number;
     marcador_visitante: number;
     estado_partido: number; // 0: no iniciado, 1: en vivo, 2: finalizado
+    resultado?: "V" | "E" | "D" | null;
 };
 
 function TeamCircle({ colores }: { colores: string[] }) {
@@ -42,17 +44,18 @@ export default function MatchCard({
     grupo,
     hora,
     local,
+    fecha,
     visitante,
     marcador_local,
     marcador_visitante,
-    estado_partido,
+    estado_partido, resultado
 }: MatchCardProps) {
     // Lógica para estilos de equipos según estado
     let localClass = "text-verde-bosque font-semibold";
     let visitanteClass = "text-verde-bosque font-semibold";
     const marcadorClass = "text-verde-pasto font-bold";
     let statusContent = (
-        <span className="text-sm text-verde-bosque font-bold">{hora}</span>
+        <span className="text-sm text-center text-verde-bosque font-bold">{hora} AM</span>
     );
 
     if (estado_partido === 1) {
@@ -78,7 +81,7 @@ export default function MatchCard({
         }
         statusContent = (
             <div className="flex flex-col text-center text-verde-bosque font-bold">
-                <span>{hora}</span>
+                <span>{hora} AM</span>
                 <div className="mt-2">
                     Finalizado
                 </div>
@@ -87,19 +90,24 @@ export default function MatchCard({
     } else {
         // No iniciado
         statusContent = (
-            <span className="text-sm text-verde-bosque font-bold">{hora}</span>
+            <span className="text-sm text-verde-bosque font-bold">{hora} AM</span>
         );
     }
 
     return (
-        <div className="bg-verde-menta rounded-xl flex items-center px-4 py-3 gap-4 text-gris-oscuro shadow border border-verde-pasto">
+        <div className="bg-verde-menta rounded-xl flex items-center px-4 py-3 gap-4 text-gris-oscuro shadow border border-verde-pasto text-">
             <div className="flex-1">
+                {fecha && (
+                    <div className="text-xs font-bold text-azul-noche mb-1">
+                        {fecha}
+                    </div>
+                )}
                 <div className="text-xs font-bold text-azul-noche">
                     {torneo}
                     {grupo && <>, <span className="font-normal text-verde-pasto">{grupo}</span></>}
                 </div>
                 {/* Equipos */}
-                <div className="flex items-center gap-2 mt-2">
+                <div className="flex justify-between items-center gap-2 mt-2">
                     {statusContent}
                     <div className="flex flex-col gap-2 ml-4">
                         <div className="flex justify-between gap-3">
@@ -130,7 +138,26 @@ export default function MatchCard({
                             </div>
                         </div>
                     </div>
-
+                    <span className={marcadorClass}>
+                        {resultado && (
+                            <span
+                                className={`ml-2 w-6 h-6 inline-flex items-center justify-center rounded-full font-bold text-sm
+                ${resultado === "V" ? "bg-verde-win text-negro-suave" : ""}
+                ${resultado === "E" ? "bg-gris-claro text-negro-suave" : ""}
+                ${resultado === "D" ? "bg-rojo-alerta text-negro-suave" : ""}
+            `}
+                                title={
+                                    resultado === "V"
+                                        ? "Victoria"
+                                        : resultado === "E"
+                                            ? "Empate"
+                                            : "Derrota"
+                                }
+                            >
+                                {resultado}
+                            </span>
+                        )}
+                    </span>
                 </div>
             </div>
 

@@ -10,7 +10,7 @@ export default function HomeCampeonato() {
                 <div className="max-w-4xl mx-auto text-center flex flex-col items-center justify-center">
                     <img src='/trofeo.svg' alt="Balonmano" className="w-40 h-40 lg:w-60 lg:h-60 object-cover rounded-full border-black border" />
                     <p className="text-xl mt-4"> Respeto. Compañerismo. Pasión.</p>
-                    <CountDown date="2025-06-14T07:00:00-05:00" />
+                    <CountDown date="2025-07-19T07:00:00-05:00" />
                 </div>
             </section>
 

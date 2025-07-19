@@ -14,23 +14,41 @@ function AdminLogin() {
         try {
             await signInWithEmailAndPassword(auth, email, password);
             navigate('/Admin')
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (err) {
             setError("Credenciales incorrectas!")
         }
-
     }
 
     return (
-        <div>
-            <h2>Inicio Sesión</h2>
-            <form onSubmit={handleLogin}>
-                <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-                <input type="password" placeholder="Contraseña" value={password} onChange={e => setPassword(e.target.value)} />
-
-                <button type='submit'>Iniciar sesión</button>
-            </form>
-            {error && <p>{error}</p>}
+        <div className="min-h-screen flex items-center justify-center ">
+            <div className="bg-blanco-puro rounded-2xl shadow-lg p-8 w-full max-w-sm border-2 border-verde-pasto">
+                <h2 className="text-2xl font-bold text-center mb-6 text-azul-noche">Inicio Sesión</h2>
+                <form onSubmit={handleLogin} className="flex flex-col gap-4">
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        className="px-4 py-2 rounded-lg border border-gris-claro focus:outline-none focus:border-verde-pasto bg-gris-claro text-negro-suave"
+                        required
+                    />
+                    <input
+                        type="password"
+                        placeholder="Contraseña"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        className="px-4 py-2 rounded-lg border border-gris-claro focus:outline-none focus:border-verde-pasto bg-gris-claro text-negro-suave"
+                        required
+                    />
+                    <button
+                        type='submit'
+                        className="bg-verde-pasto text-blanco-puro font-bold py-2 rounded-lg hover:bg-verde-bosque transition-colors"
+                    >
+                        Iniciar sesión
+                    </button>
+                </form>
+                {error && <p className="mt-4 text-center text-rojo-alerta font-semibold">{error}</p>}
+            </div>
         </div>
     );
 }

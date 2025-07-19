@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { collection, onSnapshot, getDocs } from "firebase/firestore";
 import { db } from "../components/firebaseConfig";
 import MatchCard from "../components/MatchCard"; // Ajusta la ruta si es necesario
+import { Link } from "react-router-dom";
 
 type Equipo = {
     id_equipo: number;
@@ -142,23 +143,28 @@ export default function MatchesPage() {
                         ) : (
                             <div className="flex flex-wrap justify-around gap-5">
                                 {matchesSeccion.map((m) => (
-                                    <MatchCard
+                                    <Link
                                         key={m.id_partido}
-                                        torneo="Torneo IEA"
-                                        grupo={`Fecha ${fechaNumero}`}
-                                        hora={m.hora_partido}
-                                        marcador_local={m.marcador_local}
-                                        marcador_visitante={m.marcador_visitante}
-                                        estado_partido={m.estado_partido}
-                                        local={{
-                                            nombre: getEquipo(m.id_local).nombre_equipo,
-                                            colores: getEquipo(m.id_local).color_equipo,
-                                        }}
-                                        visitante={{
-                                            nombre: getEquipo(m.id_visitante).nombre_equipo,
-                                            colores: getEquipo(m.id_visitante).color_equipo,
-                                        }}
-                                    />
+                                        to={`/partido/${m.id_partido}`}
+                                        className="no-underline"
+                                    >
+                                        <MatchCard
+                                            torneo="Torneo IEA"
+                                            grupo={`Fecha ${fechaNumero}`}
+                                            hora={m.hora_partido}
+                                            marcador_local={m.marcador_local}
+                                            marcador_visitante={m.marcador_visitante}
+                                            estado_partido={m.estado_partido}
+                                            local={{
+                                                nombre: getEquipo(m.id_local).nombre_equipo,
+                                                colores: getEquipo(m.id_local).color_equipo,
+                                            }}
+                                            visitante={{
+                                                nombre: getEquipo(m.id_visitante).nombre_equipo,
+                                                colores: getEquipo(m.id_visitante).color_equipo,
+                                            }}
+                                        />
+                                    </Link>
                                 ))}
                             </div>
                         )}

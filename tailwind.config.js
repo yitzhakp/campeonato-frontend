@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         'verde-bosque': '#013023',
+        'verde-win': '#39B57A',
         'verde-menta': '#b4e3d9',
         'verde-pasto': '#2b5a4e',
         'azul-noche': '#002B5B',
