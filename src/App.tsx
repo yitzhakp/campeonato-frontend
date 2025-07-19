@@ -29,6 +29,8 @@ function App() {
             <div className="flex gap-4 text-lg">
               <ElementNavBar to="/">Home</ElementNavBar>
               <ElementNavBar to="/partidos">Partidos</ElementNavBar>
+              <ElementNavBar to="/admin">Admin</ElementNavBar>
+
 
             </div>
 
